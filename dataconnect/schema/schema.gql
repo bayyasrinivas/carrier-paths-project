@@ -1,0 +1,50 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  photoUrl: String
+  age: Int
+  educationLevel: String
+}
+
+type Assessment @table {
+  name: String!
+  description: String!
+  type: String!
+  estimatedCompletionTime: String
+}
+
+type CareerField @table {
+  name: String!
+  description: String!
+  createdAt: Timestamp!
+  averageSalaryRange: String
+  growthOutlook: String
+}
+
+type EducationalProgram @table {
+  name: String!
+  programType: String!
+  institution: String!
+  createdAt: Timestamp!
+  description: String
+  duration: String
+  requiredSkills: [String]
+}
+
+type UserAssessmentResult @table {
+  user: User!
+  assessment: Assessment!
+  assessmentDate: Timestamp!
+  score: Int!
+  resultSummary: String!
+  detailedReportLink: String
+}
+
+type UserInterest @table {
+  user: User!
+  entityType: String!
+  entityId: UUID!
+  createdAt: Timestamp!
+  notes: String
+}
